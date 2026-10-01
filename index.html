@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Eléctricos</title> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primario: #2c3e50;
+            --color-secundario: #3498db;
+            --color-acento: #e74c3c;
+            --color-texto: #333333;
+            --color-claro: #ecf0f1;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: #f9f9f9;
+        }
+        
+        .contenedor {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: rgb(116, 51, 246);
+            box-shadow: var(--sombra);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-contenedor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* NUEVA REGLA: Controla el tamaño de tu logo */
+        .img-logo {
+            height: 50px; /* Ajusta la altura a 50 pixeles */
+            width: auto;  /* Mantiene las proporciones correctas de la imagen */
+            border-radius: 4px; /* Suaviza un poco las esquinas */
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            color: var(--color-texto);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicion);
+        }
+        
+        .nav-link:hover {
+            color: var(--color-secundario);
+        }
+        
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-secundario) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-titulo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitulo {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .boton {
+            display: inline-block;
+            background-color: var(--color-acento);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transicion);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .boton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .seccion {
+            padding: 80px 0;
+        }
+        
+        .seccion-titulo {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--color-primario);
+        }
+        
+        .servicios {
+            background-color: white;
+        }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .servicio-card {
+            background-color: var(--color-claro);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transicion);
+            box-shadow: var(--sombra);
+        }
+        
+        .servicio-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .servicio-icono {
+            font-size: 3rem;
+            color: var(--color-secundario);
+            margin-bottom: 20px;
+        }
+        
+        .servicio-titulo {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .sobre-nosotros {
+            background-color: var(--color-claro);
+        }
+        
+        .sobre-contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .sobre-imagen {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+        }
+        
+        .testimonios {
+            background-color: white;
+        }
+        
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonio-card {
+            background-color: var(--color-claro);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--sombra);
+        }
+        
+        .testimonio-texto {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonio-autor {
+            font-weight: bold;
+            color: var(--color-primario);
+        }
+        
+        .contacto {
+            background-color: white;
+        }
+        
+        .formulario-contacto {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-grupo {
+            margin-bottom: 20px;
+        }
+        
+        .form-etiqueta {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: var(--color-primario);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-contenido {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-titulo {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 10px;
+        }
+        
+        .footer-link a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+        
+        .footer-link a:hover {
+            color: white;
+        }
+        
+        .derechos {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-titulo {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitulo {
+                font-size: 1.2rem;
+            }
+            
+            .sobre-contenido {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="contenedor nav-contenedor">
+            <!-- AQUÍ AGREGAMOS TU LOGO -->
+            <a href="#" class="logo">
+                <img src="CEGIM LOGO.png" alt="Logo de CEGIM" class="img-logo">
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li class="nav-item"><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                <li class="nav-item"><a href="#contacto" class="nav-link">Contáctanos</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="contenedor">
+            <h1 class="hero-titulo">Soluciones integrales para tus proyectos</h1>
+            <p class="hero-subtitulo">Expertos dedicados a potenciar el éxito y la seguridad de tus instalaciones</p>
+            <a href="#servicios" class="boton">Ver Nuestros Servicios</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="seccion servicios">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">Nuestros Servicios</h2>
+            <div class="servicios-grid">
+                
+                <div class="servicio-card">
+                    <div class="servicio-icono"><i class="fas fa-clipboard-list"></i></div>
+                    <h3 class="servicio-titulo">Gestión y Consulta</h3>
+                    <p>Asesoría experta y planificación integral para garantizar la viabilidad y seguridad de tus proyectos eléctricos.</p>
+                </div>
+                
+                <div class="servicio-card">
+                    <div class="servicio-icono"><i class="fas fa-plug"></i></div>
+                    <h3 class="servicio-titulo">Instalación Eléctrica</h3>
+                    <p>Implementación segura y eficiente de sistemas eléctricos, cumpliendo rigurosamente con todas las normativas vigentes.</p>
+                </div>
+                
+                <div class="servicio-card">
+                    <div class="servicio-icono"><i class="fas fa-tools"></i></div>
+                    <h3 class="servicio-titulo">Mantenimiento</h3>
+                    <p>Servicios preventivos y correctivos orientados a maximizar la vida útil y la confiabilidad operativa de tus instalaciones.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="seccion sobre-nosotros">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">Sobre Nosotros</h2>
+            <div class="sobre-contenido">
+                <div>
+                    <p>Somos una empresa especializada en soluciones tecnológicas y eléctricas, dedicados a proporcionar sistemas integrales y confiables para todo tipo de proyectos.</p>
+                    <p>Nuestro equipo está formado por profesionales altamente cualificados, siempre buscando superar las expectativas de nuestros clientes aplicando normativas y diseño de vanguardia.</p>
+                    <p>Creemos en establecer relaciones a largo plazo basadas en la confianza, la transparencia y los resultados tangibles.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Nuestro equipo" class="sobre-imagen">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="seccion testimonios">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">Lo que dicen nuestros clientes</h2>
+            <div class="testimonios-grid">
+                <div class="testimonio-card">
+                    <p class="testimonio-texto">"El nivel de detalle en la instalación y el cumplimiento de las normativas nos dio muchísima tranquilidad en nuestro proyecto."</p>
+                    <p class="testimonio-autor">- María González, CEO de EmpresaX</p>
+                </div>
+                <div class="testimonio-card">
+                    <p class="testimonio-texto">"Los resultados han superado todas nuestras expectativas. Su servicio de mantenimiento preventivo nos ha ahorrado muchos problemas."</p>
+                    <p class="testimonio-autor">- Javier López, Director de Operaciones</p>
+                </div>
+                <div class="testimonio-card">
+                    <p class="testimonio-texto">"Excelente asesoría en la gestión eléctrica. Identificaron exactamente lo que necesitábamos desde el primer día."</p>
+                    <p class="testimonio-autor">- Ana Martínez, Gerente de TI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="seccion contacto">
+        <div class="contenedor">
+            <h2 class="seccion-titulo">Contáctanos</h2>
+            <div class="formulario-contacto">
+                <!-- AQUÍ ESTÁ LA MAGIA: Agregamos action y method -->
+                <!-- REEMPLAZA tu-correo@ejemplo.com con el correo donde quieres recibir los mensajes -->
+                <form action="https://formsubmit.co/pedrofernando.5522698256@gmail.com" method="POST">
+                    
+                    <div class="form-grupo">
+                        <label for="nombre" class="form-etiqueta">Nombre</label>
+                        <!-- Agregamos name="nombre" -->
+                        <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="email" class="form-etiqueta">Email</label>
+                        <!-- Agregamos name="email" -->
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="asunto" class="form-etiqueta">Asunto</label>
+                        <!-- Agregamos name="asunto" -->
+                        <input type="text" id="asunto" name="asunto" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="mensaje" class="form-etiqueta">Mensaje</label>
+                        <!-- Agregamos name="mensaje" -->
+                        <textarea id="mensaje" name="mensaje" class="form-control" required></textarea>
+                    </div>
+
+                    <!-- Esta línea oculta evita que te pidan resolver un Captcha confuso -->
+                    <input type="hidden" name="_captcha" value="false">
+<!-- Formulario existente en CEGIM.html -->
+<form action="https://formsubmit.co/pedrofernando.5522698256@gmail.com" method="POST">
+    
+    <!-- (Tus campos de nombre, email, asunto y mensaje siguen aquí arriba) -->
+
+    <!-- Esta línea ya la tenías para evitar el captcha -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- NUEVO CÓDIGO: Configuración de la página de redirección -->
+    <!-- Reemplaza el enlace de value por la dirección web real que tendrás en el futuro -->
+    <input type="hidden" name="_next" value="https://tudominio.com/gracias.html">
+
+    <button type="submit" class="boton">Enviar mensaje</button>
+</form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contenedor">
+            <div class="footer-contenido">
+                <div>
+                    <!-- También puedes usar tu logo aquí si lo deseas en el futuro -->
+                    <a href="#" class="footer-logo">CEGIM</a>
+                    <p>Consulta Eléctrica para la Gestión, Instalación y Mantenimiento.</p>
+                </div>
+                <div>
+                    <h3 class="footer-titulo">Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#inicio">Inicio</a></li>
+                        <li class="footer-link"><a href="#servicios">Servicios</a></li>
+                        <li class="footer-link"><a href="#nosotros">Nosotros</a></li>
+                        <li class="footer-link"><a href="#testimonios">Testimonios</a></li>
+                        <li class="footer-link"><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-titulo">Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Calle Principal, 123</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@cegim.com</p>
+                </div>
+            </div>
+            <div class="derechos">
+                <p>&copy; 2026 CEGIM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

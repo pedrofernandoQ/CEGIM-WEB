@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Mensaje Enviado!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reutilizamos tus variables de diseño para mantener la consistencia */
+        :root {
+            --color-primario: #2c3e50;
+            --color-secundario: #3498db;
+            --color-acento: #e74c3c;
+            --color-texto: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--color-texto);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+            text-align: center;
+        }
+
+        .mensaje-contenedor {
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .icono-exito {
+            font-size: 5rem;
+            color: #2ecc71; /* Color verde de éxito */
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--color-primario);
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: var(--color-secundario);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .boton:hover {
+            background-color: var(--color-primario);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mensaje-contenedor">
+        <i class="fas fa-check-circle icono-exito"></i>
+        <h1>¡Gracias por contactarnos!</h1>
+        <p>Hemos recibido tu mensaje correctamente. Nuestro equipo revisará tu solicitud y se pondrá en contacto contigo lo más pronto posible para brindarte la mejor asesoría en tu proyecto.</p>
+        
+        <!-- Este enlace ahora devuelve al usuario a index.html -->
+        <a href="index.html" class="boton">Volver al inicio</a>
+    </div>
+
+</body>
+</html>
